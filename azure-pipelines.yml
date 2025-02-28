@@ -13,19 +13,17 @@ stages:
   -  stage: Testing
      jobs:
        - job: myjob
-        steps:
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      echo 'Hello my team'
-      echo 'Hello world'
-        
-        - task: PublishBuildArtifacts@1
-          inputs:
-            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-            ArtifactName: 'drop'
-            publishLocation: 'Container'
-    - stage : Development
-        
+         steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: |
+                echo 'Hello my team'                
+                echo 'Hello world'
           
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'drop'
+              publishLocation: 'Container'
+  
